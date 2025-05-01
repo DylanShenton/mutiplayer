@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://cr6qeq2iqlul6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_52rik"]
+size = Vector2(16, 16)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_o8ahp"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_55bik"]
+size = Vector2(12, 2)
+
+[node name="SmallBox" type="RigidBody2D"]
+collision_layer = 32
+collision_mask = 50
+mass = 5.0
+lock_rotation = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_52rik")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("PlaceholderTexture2D_o8ahp")
+
+[node name="Solid top" type="StaticBody2D" parent="."]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Solid top"]
+position = Vector2(0, -7)
+shape = SubResource("RectangleShape2D_55bik")
